@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Slot Machine</title>
+    <script src='script.js' defer></script>
+
+    <style>
+        header {
+		  font-family: consolas, sans-serif;
+		}
+
+		header h4 {
+		  font-style: italic;
+		}
+
+		#lever {
+		  padding: 10px;
+		  display: inline;
+		  font-size: larger;
+		}
+
+		#display td {
+		  text-align: center;
+		  width: 100px;
+		  border: 1px solid black;
+		  padding: 5px;
+		  height: 25px;
+		}
+
+		.slot {
+		  font-family: consolas, sans-serif;
+		  font-size: larger;
+		}
+
+		#left-panel,
+		#right-panel {
+		  margin: 10px;
+		  display: table-cell;
+		  padding: 10px;
+		  border: 1px solid blue;
+		}
+
+		#left-panel {
+		  background: white;
+		}
+
+		#right-panel {
+		  background: yellow;
+		  font-family: Arial, sans-serif;
+		}
+
+		#bottom-panel {
+		  margin: 20px;
+		  height: 50px;
+		  width: 50%px;
+		}
+
+		#output-message {
+		  padding: 15px 20px;
+		  font-family: Consolas, sans-serif;
+		}
+
+		footer {
+		  margin-top: 30px;
+		}
+
+    </style>
+</head>
+
+<body>
+<header>
+  <h2>
+    Slot Machine
+  </h2>
+  <h4>
+    Click on the "Pull the Lever" button to try your luck!
+  </h4>
+</header>
+<div id="machine">
+  <div id="left-panel">
+    <table id="display">
+      <tr>
+        <td>
+          <div class="slot">???</div>
+        </td>
+        <td>
+          <div class="slot">???</div>
+        </td>
+        <td>
+          <div class="slot">???</div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div id="right-panel">
+    <button id="lever">
+      Pull the Lever!
+    </button>
+  </div>
+  <hr>
+  <div id="bottom-panel">
+    <span id="output-message"></span>
+  </div>
+</div>
+<footer>
+  &#169; Gerry Walden
+</footer>
+</body>
+</html>

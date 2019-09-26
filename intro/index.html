@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Intro to View</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div id = 'app' v-cloak>
+            <label>What’s your name? <input type='text' v-model='playerName'></label>
+            <p v-if='playerName != null'>Player: {{ playerName }} </p>
+            <hr>
+            <label>Guess the number <input type='text' v-model='guess'></label>
+            <button v-on:click="guesses.push(guess)">Guess</button>
+            <ul>
+                <li v-for='thisGuess in guesses'>{{ thisGuess }}</li>
+            </ul>
+    </div>
+  </body>
+</html>

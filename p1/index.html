@@ -8,49 +8,47 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <div id = 'app' v-cloak>
-        <header>
+      <header>
           <h2>Slot Machine</h2>
             <h4>
             Click on the "Pull the Lever" button to try your luck!
            </h4>
         </header>
-
+      <div id = 'app' v-cloak>
         <label>Enter a wager <input type='text' v-model='wager'></label>
-            <button v-on:click="wager">Place your bet!</button>
-            <div v-if = 'wager != null'>
-                <span id ="wager">{{ wager }}</span>
-            </div>
-
-          <div id="machine">
-            <div id="left-panel">
-              <table id="display">
-                <tr>
-                  <td>
-                    <div class="slot">???</div>
-                  </td>
-                  <td>
-                    <div class="slot">???</div>
-                  </td>
-                  <td>
-                    <div class="slot">???</div>
-                  </td>
-                </tr>
-              </table>
-            </div>
-            <div id="right-panel">
-              <button id="lever">
-                Pull the Lever!
-              </button>
-            </div>
-            <hr>
-            <div id="bottom-panel">
-              <span id="output-message"></span>
-            </div>
+        <button v-on:click="wager">Place your bet!</button>
+        <div v-if = 'wager != null'>
+          <span id ="wager">{{ wager }}</span>
+        
+        <div id="machine">
+          <div id="left-panel">
+            <table id="display">
+              <tr>
+                <td>
+                  <div class="slot">???</div>
+                </td>
+                <td>
+                  <div class="slot">???</div>
+                </td>
+                <td>
+                  <div class="slot">???</div>
+                </td>
+              </tr>
+            </table>
           </div>
-          <footer>
+          <div id="right-panel">
+            <button id="lever">
+              Pull the Lever!
+            </button>
+          </div>
+          <hr>
+          <div id="bottom-panel">
+            <span id="output-message"></span>
+          </div>
+      </div>
+      <footer>
             &#169; Gerry Walden
-          </footer>
+      </footer>
             <!-- <label>What’s your name? <input type='text' v-model='playerName'></label>
             <p v-if='playerName != null'>Player: {{ playerName }} </p>
             <hr>

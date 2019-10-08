@@ -1,3 +1,106 @@
 [v-cloak] {
     display: none;
 }
+
+#slotMachine {
+    width: 600px;
+    margin-left: 100px;
+    border: 5px dotted black;
+    display: inline-block;
+    background-color: red;
+    border-radius: 10px 10px 0px 0px;
+    text-align: center;
+}
+#wagerPanel {
+    margin: 10px;
+    border-radius: 10px;
+    padding: 15px;
+    background: slategray;
+    display: inline-block;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#wager, #funds {
+    width: 25%;
+    border-radius: 5px;
+    padding: 10px 5px;
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    background: white;
+}
+.display {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;}
+.slot {
+    height: 80px;
+    width: 80px;
+    background-color: yellow;
+    font-family: Consolas;
+    font-size: 48px;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    box-sizing: border-box;
+}
+#slotsDisplay {
+    background-color: whitesmoke;
+    border: 2px solid gray;
+
+    margin: 10px;
+    border-radius: 5px;
+}
+#bottom-panel{
+    padding: 5px;
+    height: 30px;
+    box-sizing: border-box;
+    background-color: antiquewhite;
+}
+
+.error {
+    color: red;
+}
+#lever {
+    display: inline-block;
+    width: 10px;
+    margin-left: 10px;
+    border: 2px solid black;
+}
+
+#lever, #lever button {
+    background-color: darkgoldenrod;
+    font-weight: bold;
+    border-radius: 10px;
+    border-color: goldenrod;
+}
+
+#background {
+    display: flex;
+    flex-direction: row;
+}
+
+#playAgain {
+    font-size: 24px;
+    padding: 5px;
+    background: yellow;
+    border-radius: 5px;
+    display: table;
+    position: fixed;
+    left: 300px;
+    top: 150px;
+}
+
+#playAgain button {
+    margin-left: 10px;
+    height: 25px;
+}
+
+#output-message {
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+.jackpotMsg {
+    background-color: lightgreen;
+    font-weight: bold;
+}

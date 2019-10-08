@@ -1,62 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
-    <meta charset="utf-8">
     <title>Slot Machine</title>
+    <meta charset="utf-8">
     <link rel="stylesheet" href="styles.css">
+    
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
     <script src="script.js" defer></script>
+  
   </head>
+  
   <body>
       <header>
-          <h2>Slot Machine</h2>
-            <h4>
-            Click on the "Pull the Lever" button to try your luck!
-           </h4>
-        </header>
-      <div id = 'app' v-cloak>
-        <label>Enter a wager <input type='text' v-model='wager'></label>
-        <button v-on:click="wager">Place your bet!</button>
-        <div v-if = 'wager != null'>
-          <span id ="wager">{{ wager }}</span>
-        
-        <div id="machine">
-          <div id="left-panel">
-            <table id="display">
-              <tr>
-                <td>
-                  <div class="slot">???</div>
-                </td>
-                <td>
-                  <div class="slot">???</div>
-                </td>
-                <td>
-                  <div class="slot">???</div>
-                </td>
-              </tr>
-            </table>
+        <h2>Slot Machine</h2>
+          <h4>Click on the "Pull the Lever" button to try your luck, or just hit Enter!</h4>
+      </header>
+
+    <div id = 'app' v-cloak>
+      <div id = "playAgain" v-if = 'gameMode == "end"'>
+            <label for = "reset">Play another round?</label>
+            <button id = "reset" @click='resetGame'>Yes</button>
+      </div>
+      <br>
+      <!--<span>{{gameMode}}</span>-->
+      <div id = "background">
+
+        <div id = "slotMachine">
+
+          <div id = "wagerPanel">
+            <label for ='wager'>Enter a wager</label>
+            <input type='number' min = "5" pattern = "[0-9]{1:4}" step = "5" id = 'wager' v-model.number='wager' @keyup.enter='pullTheLever'>
+            
           </div>
-          <div id="right-panel">
-            <button id="lever">
-              Pull the Lever!
-            </button>
+         
+          <div v-if = 'gameMode == "initial"'>
+            <div id = "fundAndWager" class = "display">
+                <div id = "funds">Funds: {{ balanceDisplay }}</div>
+                <div id = "wager">Wager: {{wager}}</div>
+              </div>
+                <div class="display" id = "slotsDisplay">
+                    <div id="slot1" class = "slot"> </div>
+                    <div id="slot2" class = "slot"> </div>
+                    <div id="slot3" class = "slot"> </div>
+                </div>
           </div>
+
+          <div id="slots">
+            <div v-if = 'gameMode == "play"'>
+              <div id = "fundAndWager" class = "display">
+                <div id = "funds">Funds: {{ balanceDisplay }}</div>
+                <div id = "wager" v-bind:class = "{error: wagerError}">Wager: {{ wagerDisplay }}</div>
+              </div>
+                <div class="display" id = "slotsDisplay">
+                    <div id="slot1" class = "slot">{{slot1}}</div>
+                    <div id="slot2" class = "slot">{{slot2}}</div>
+                    <div id="slot3" class = "slot">{{slot3}}</div>
+                </div>
+            </div>
+
+            <div v-if = 'gameMode == "end"'>
+              <div id = "fundAndWager" class = "display">
+                  <div id = "funds">Funds: {{balanceDisplay}} </div>
+                  <div id = "wager" >Wager: XXX </div>
+                </div>
+                  <div class="display" id = "slotsDisplay">
+                      <div id="slot1" class = "slot"> </div>
+                      <div id="slot2" class = "slot"> </div>
+                      <div id="slot3" class = "slot"> </div>
+                  </div>
+            </div>
+          
+          </div>
+
           <hr>
           <div id="bottom-panel">
-            <span id="output-message"></span>
+            <span id="output-message" v-bind:class = "{jackpotMsg:wonJackpot}">{{ outcomeMsg }}</span>
           </div>
+          
+        </div> <!-- End of 'slot machine'-->
+        <div id = "lever">
+            <button @click='pullTheLever'>Pull the Lever!</button>
+        </div>
       </div>
-      <footer>
-            &#169; Gerry Walden
-      </footer>
-            <!-- <label>What’s your name? <input type='text' v-model='playerName'></label>
-            <p v-if='playerName != null'>Player: {{ playerName }} </p>
-            <hr>
-            <label>Guess the number <input type='text' v-model='guess'></label>
-            <button v-on:click="guesses.push(guess)">Guess</button>
-            <ul>
-                <li v-for='thisGuess in guesses'>{{ thisGuess }}</li>
-            </ul> -->
-    </div>
+
+    </div><!-- End of 'app' -->
+
+    <footer>
+          &#169; Gerry Walden
+    </footer>
+            
   </body>
 </html>

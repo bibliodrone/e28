@@ -14,23 +14,28 @@
   <body>
       <header>
         <h2>Slot Machine</h2>
-          <h4>Click on the "Pull the Lever" button to try your luck, or just hit Enter!</h4>
+          <p>Enter a wager (default is $25.00)</p>
+          <p>Click on the "Pull the Lever" button to try your luck, or just hit Enter!</p>
+          <p>If you match two out of three slots, you keep half your wager.</p>
+          <p>Jackpot wins 2.5 x wager.</p>
       </header>
 
     <div id = 'app' v-cloak>
-      <div id = "playAgain" v-if = 'gameMode == "end"'>
-            <label for = "reset">Play another round?</label>
-            <button id = "reset" @click='resetGame'>Yes</button>
-      </div>
+      
       <br>
       <!--<span>{{gameMode}}</span>-->
       <div id = "background">
+          <div id = "wagerMsg" v-if = 'wagerError == true'>If wager exceeds funds, wager will be set to max remaining funds.</div>
+          <div id = "playAgain" v-if = 'gameMode == "end"'>
+              <label for = "reset">Game Over. Reset funds and play another round?</label>
+              <button id = "reset" @click='resetGame'>Yes!</button>
+        </div>
 
         <div id = "slotMachine">
-
+            
           <div id = "wagerPanel">
             <label for ='wager'>Enter a wager</label>
-            <input type='number' min = "5" pattern = "[0-9]{1:4}" step = "5" id = 'wager' v-model.number='wager' @keyup.enter='pullTheLever'>
+            <input type='number' min = "5" pattern = "[0-9]{1:4}" step = "5" id = 'wager' v-model.number='wager' @keyup.enter='pullTheLever' autofocus>
             
           </div>
          
@@ -65,9 +70,9 @@
                   <div id = "wager" >Wager: XXX </div>
                 </div>
                   <div class="display" id = "slotsDisplay">
-                      <div id="slot1" class = "slot"> </div>
-                      <div id="slot2" class = "slot"> </div>
-                      <div id="slot3" class = "slot"> </div>
+                      <div id="slot1" class = "slot">{{slot1}}</div>
+                      <div id="slot2" class = "slot">{{slot2}}</div>
+                      <div id="slot3" class = "slot">{{slot3}}</div>
                   </div>
             </div>
           
@@ -75,14 +80,18 @@
 
           <hr>
           <div id="bottom-panel">
-            <span id="output-message" v-bind:class = "{jackpotMsg:wonJackpot}">{{ outcomeMsg }}</span>
+            <span id="output-message" v-bind:class = "{jackpotMsg:wonJackpot, error:lostMoney}">{{ outcomeMsg }}</span>
           </div>
           
         </div> <!-- End of 'slot machine'-->
+        <div id = "hinge">
+          <span>&#x2593;&#x2592;&#x2593;</span>
+        </div>
         <div id = "lever">
             <button @click='pullTheLever'>Pull the Lever!</button>
         </div>
       </div>
+     
 
     </div><!-- End of 'app' -->
 

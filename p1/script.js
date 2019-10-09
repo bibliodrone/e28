@@ -3,7 +3,7 @@ let app = new Vue({
   data: {
     items: ["🍎", "➆", "♠", "🍒", "♥", "🍌"],
     jackpot: 0,
-    wager: 5.00,
+    wager: 25.00,
     wagerError: false,
     balance: 500.00,
     slot1:'?',
@@ -11,7 +11,7 @@ let app = new Vue({
     slot3:'?',
     gameMode: "initial",
     outcomeMsg: '',
-    busted: false,
+    lostMoney: false,
   },
   computed: {
     balanceDisplay: function () {
@@ -85,17 +85,20 @@ let app = new Vue({
           balanceChange = (-1 * this.wager);
 
           this.outcomeMsg = "Loss: " + balanceChange.toFixed(2);
-
+          this.lostMoney = true;
+          
           //document.getElementById("output-message").textContent = "Better luck next time...";
         }
         else if (this.jackpot == 1 || this.jackpot == 2) {
           balanceChange = ((-1 * this.wager)/2);
           this.outcomeMsg = "Loss: " +  balanceChange.toFixed(2);
+          this.lostMoney = true;
           //document.getElementById("output-message").textContent = "Partial match...";
         }
         else if (this.jackpot == 3) {
-          balanceChange = (1.5 * this.wager);
+          balanceChange = (2.5 * this.wager);
           this.outcomeMsg = "Jackpot! You win " + (balanceChange.toFixed(2));
+          this.lostMoney = false;
           //document.getElementById("output-message").textContent = "Jackpot!";
         } 
         else {
@@ -112,14 +115,14 @@ let app = new Vue({
     playAgain : function () {
       this.balance = 0;
       this.wager = 0;
-      this.outcomeMessage = "Better Luck Next Time!";
+      this.outcomeMsg = "Better Luck Next Time!";
       this.gameMode = "end";
     },
 
 
     resetGame : function () {
       this.balance = 500;
-      this.wager = 5;
+      this.wager = 25;
       this.wagerError = false;
       this.outcomeMsg = '';
       this.gameMode = "initial";

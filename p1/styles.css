@@ -2,6 +2,17 @@
     display: none;
 }
 
+header {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 40px;
+    margin-left: 25px;
+}
+
+header p {
+    margin-top: 8px;
+    margin-bottom: 8px; 
+}
+
 #slotMachine {
     width: 600px;
     margin-left: 100px;
@@ -34,6 +45,7 @@
     justify-content: space-around;
     align-items: center;}
 .slot {
+
     height: 80px;
     width: 80px;
     background-color: yellow;
@@ -41,8 +53,9 @@
     font-size: 48px;
     text-align: center;
     padding: 10px;
-    margin: 10px;
+    margin: 0px 10px;
     box-sizing: border-box;
+    border: 1px solid lightgray;
 }
 #slotsDisplay {
     background-color: whitesmoke;
@@ -58,13 +71,9 @@
     background-color: antiquewhite;
 }
 
-.error {
-    color: red;
-}
 #lever {
     display: inline-block;
     width: 10px;
-    margin-left: 10px;
     border: 2px solid black;
 }
 
@@ -75,32 +84,69 @@
     border-color: goldenrod;
 }
 
+#lever button {
+    position: relative; 
+    left: -20px;
+    top: -5px;
+}
+#hinge {
+    display:flex; 
+    align-items:flex-end;
+    color: darkgoldenrod;
+}
 #background {
     display: flex;
     flex-direction: row;
 }
 
 #playAgain {
+    border: 2px solid orange;
     font-size: 24px;
-    padding: 5px;
-    background: yellow;
+    padding: 15px;
+    background-image: radial-gradient(goldenrod,  yellow);
     border-radius: 5px;
+    border-style: outset;
     display: table;
     position: fixed;
-    left: 300px;
-    top: 150px;
+    left: 130px;
+    top: 190px;
 }
 
-#playAgain button {
+#reset {
     margin-left: 10px;
-    height: 25px;
+    height: 50px;
+    width:50px;
+    background-color: lightgreen;
+    border-radius: 5px;
+    font-weight: bold;
 }
 
 #output-message {
     font-size: 20px;
     font-family: 'Courier New', Courier, monospace;
 }
+
+#wagerMsg {
+    display: table-cell;
+    position: absolute;
+    top: 195px; 
+    left: 130px;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: lightblue;
+    border: 1px solid black;
+}
+
 .jackpotMsg {
     background-color: lightgreen;
     font-weight: bold;
+}
+.error {
+    font-weight: bold;
+    color: red;
+}
+
+footer {
+    margin-top: 100px;
 }

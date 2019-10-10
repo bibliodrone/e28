@@ -21,7 +21,7 @@ let app = new Vue({
       return this.wager.toFixed(2);
     },
     wonJackpot : function() {
-      return this.jackpot == 3;
+      return this.jackpot == 3; //Applies styling class to #outcome-message on Jackpot (jackpot: 3).
     }
   }, 
 
@@ -34,8 +34,9 @@ let app = new Vue({
   },
 
   methods: {
-    // Validate input wager, set game-mode to play, generate random numbers to simulate
-    // the place where each slot comes to rest. 
+    /* Validate input wager, set game-mode to play, generate random numbers to simulate
+       the place where each slot comes to rest. 
+    */
     pullTheLever: function() {
       if (this.wager > this.balance && this.balance > 0) {
         this.wagerError = true;
@@ -59,11 +60,11 @@ let app = new Vue({
       }
     },
 
-    // Ascertain the outcome of the round, based on the degree of matching between the three slots
-    // Jackpot result score is 0-3; 0 = no matching slots; 1 or 2 = partial match; 3 = Jackpot;
-    // It's a crude but straightforward way to do the test. 
-    // Jackpot score determines wager outcome: total wager loss, 0.5 wager loss, jackpot win = 2.5 * wager.
-
+    /* Ascertain the outcome of the round, based on the degree of matching between the three slots
+       Jackpot result score is 0-3; 0 = no matching slots; 1 or 2 = partial match; 3 = Jackpot;
+       It's a crude but straightforward way to do the test. 
+       Jackpot score determines wager outcome: total wager loss, 0.5 wager loss, jackpot win = 2.5 * wager.
+    */
     betOutcome: function(slots) {
       if (this.balance < 1) {
         this.playAgain();
@@ -94,14 +95,12 @@ let app = new Vue({
           balanceChange = ((-1 * this.wager)/2);
           this.outcomeMsg = "Loss: " +  balanceChange.toFixed(2);
           this.lostMoney = true;
-          //document.getElementById("output-message").textContent = "Partial match...";
         }
         
         else if (this.jackpot == 3) {
           balanceChange = (2.5 * this.wager);
           this.outcomeMsg = "Jackpot! You win " + (balanceChange.toFixed(2));
           this.lostMoney = false;
-          //document.getElementById("output-message").textContent = "Jackpot!";
         } 
         
         else {

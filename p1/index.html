@@ -23,7 +23,6 @@
     <div id = 'app' v-cloak>
       
       <br>
-      <!--<span>{{gameMode}}</span>-->
       <div id = "background">
           <div id = "wagerMsg" v-if = 'wagerError == true'>If wager exceeds funds, wager will be set to max remaining funds.</div>
           <div id = "playAgain" v-if = 'gameMode == "end"'>
@@ -92,13 +91,9 @@
             <button @click='pullTheLever'>Pull the Lever!</button>
         </div>
       </div>
-     
-
-    </div><!-- End of 'app' -->
-
-    <footer>
-          &#169; Gerry Walden
-    </footer>
-            
+      <footer>
+        &#169;2019 Waldovision
+      </footer>
+    </div><!-- End of 'app' -->          
   </body>
 </html>

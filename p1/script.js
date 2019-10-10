@@ -34,6 +34,8 @@ let app = new Vue({
   },
 
   methods: {
+    // Validate input wager, set game-mode to play, generate random numbers to simulate
+    // the place where each slot comes to rest. 
     pullTheLever: function() {
       if (this.wager > this.balance && this.balance > 0) {
         this.wagerError = true;
@@ -52,12 +54,15 @@ let app = new Vue({
         this.slot1 = this.items[slots [0]];
         this.slot2 = this.items[slots [1]];
         this.slot3 = this.items[slots [2]];
-        //console.log(slots);
-        //this.balance -= this.wager;
   
         this.betOutcome(slots);
       }
     },
+
+    // Ascertain the outcome of the round, based on the degree of matching between the three slots
+    // Jackpot result score is 0-3; 0 = no matching slots; 1 or 2 = partial match; 3 = Jackpot;
+    // It's a crude but straightforward way to do the test. 
+    // Jackpot score determines wager outcome: total wager loss, 0.5 wager loss, jackpot win = 2.5 * wager.
 
     betOutcome: function(slots) {
       if (this.balance < 1) {
@@ -69,42 +74,42 @@ let app = new Vue({
         var s2 = slots[1];
         var s3 = slots[2];
 
-        //console.log(s1 + " " + s2 + "  " + s3);
         var s1s2 = (s1 == s2);
         var s2s3 = (s2 == s3);
         var s1s3 = (s1 == s3);
-        //console.log(s1s2, s2s3, s1s3);
 
         if(s1s2) {this.jackpot += 1};
         if(s2s3) {this.jackpot += 1};
         if(s1s3) {this.jackpot += 1};
 
-        console.log("Jackpot status " + this.jackpot.toFixed(2));
-      
         if (this.jackpot == 0) {
           balanceChange = (-1 * this.wager);
 
           this.outcomeMsg = "Loss: " + balanceChange.toFixed(2);
           this.lostMoney = true;
           
-          //document.getElementById("output-message").textContent = "Better luck next time...";
         }
+        
         else if (this.jackpot == 1 || this.jackpot == 2) {
           balanceChange = ((-1 * this.wager)/2);
           this.outcomeMsg = "Loss: " +  balanceChange.toFixed(2);
           this.lostMoney = true;
           //document.getElementById("output-message").textContent = "Partial match...";
         }
+        
         else if (this.jackpot == 3) {
           balanceChange = (2.5 * this.wager);
           this.outcomeMsg = "Jackpot! You win " + (balanceChange.toFixed(2));
           this.lostMoney = false;
           //document.getElementById("output-message").textContent = "Jackpot!";
         } 
+        
         else {
           this.outcomeMsg = "Jackpot code: " + jackpot;
         }
+        
         newBalance = newBalance + balanceChange;
+        
         if(newBalance < 1) {
           this.playAgain();
         }

@@ -13,6 +13,11 @@ header p {
     margin-bottom: 8px; 
 }
 
+#background {
+    display: flex;
+    flex-direction: row;
+}
+
 #slotMachine {
     width: 600px;
     margin-left: 100px;
@@ -22,6 +27,7 @@ header p {
     border-radius: 10px 10px 0px 0px;
     text-align: center;
 }
+
 #wagerPanel {
     margin: 10px;
     border-radius: 10px;
@@ -66,9 +72,25 @@ header p {
 }
 #bottom-panel{
     padding: 5px;
-    height: 30px;
+    height: 60px;
     box-sizing: border-box;
-    background-color: antiquewhite;
+    background-color: ghostwhite;
+}
+
+#output-message {
+    font-size: 20px;
+    margin-top: 15px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.jackpotMsg {
+    background-color: lightgreen;
+    font-weight: bold;
+}
+
+.error {
+    font-weight: bold;
+    color: red;
 }
 
 #lever {
@@ -94,10 +116,6 @@ header p {
     align-items:flex-end;
     color: darkgoldenrod;
 }
-#background {
-    display: flex;
-    flex-direction: row;
-}
 
 #playAgain {
     border: 2px solid orange;
@@ -121,11 +139,6 @@ header p {
     font-weight: bold;
 }
 
-#output-message {
-    font-size: 20px;
-    font-family: 'Courier New', Courier, monospace;
-}
-
 #wagerMsg {
     display: table-cell;
     position: absolute;
@@ -138,14 +151,6 @@ header p {
     border: 1px solid black;
 }
 
-.jackpotMsg {
-    background-color: lightgreen;
-    font-weight: bold;
-}
-.error {
-    font-weight: bold;
-    color: red;
-}
 
 footer {
     margin-top: 100px;

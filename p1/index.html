@@ -38,7 +38,9 @@
             <input type='number' min = "5" pattern = "[0-9]{1:4}" step = "5" id = 'wager' v-model.number='wager' @keyup.enter='pullTheLever' autofocus>
             
           </div>
-         
+
+         <!-- Could probably refactor the conditional display below, to reduce the amount 
+              of repeated code -->
           <div v-if = 'gameMode == "initial"'>
             <div id = "fundAndWager" class = "display">
                 <div id = "funds">Funds: {{ balanceDisplay }}</div>
@@ -75,12 +77,11 @@
                       <div id="slot3" class = "slot">{{slot3}}</div>
                   </div>
             </div>
-          
           </div>
 
           <hr>
           <div id="bottom-panel">
-            <span id="output-message" v-bind:class = "{jackpotMsg:wonJackpot, error:lostMoney}">{{ outcomeMsg }}</span>
+            <div id="output-message" v-bind:class = "{jackpotMsg:wonJackpot, error:lostMoney}">{{ outcomeMsg }}</div>
           </div>
           
         </div> <!-- End of 'slot machine'-->

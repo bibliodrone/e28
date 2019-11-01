@@ -1,27 +1,16 @@
-# p2
-
-I have not committed more recent changes because they ended up breaking the project further. The Wager input box always defaults to 25 regardless of user input. This seems like a simple fix, but proved not to be.
 
 
-## Project setup
-```
-npm install
-```
+# Project 2
++ By: Gerald Walden
++ Production URL: <http://p2.geraldbrentwalden.me>
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Build strategy
+*Put an x in the build strategy you used. Put an x in each if you tackled both.*
++ [ ] Integrated
++ [x] Comprehensive
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Outside resources
+None outside documentation sources discussed in class, and searching Stack Overflow for information on "component not defined on instance but referenced during render" errors. 
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Notes for instructor
+I have not committed more recent code changes because they ended up breaking the project further. The Wager input box always defaults to 25 regardless of user input. This seems like a simple fix, but proved not to be. I regret now that I tried to refactor this project instead of starting over with something new. There were just too many poorly understood things building on each other for me to be able to get it all working properly.

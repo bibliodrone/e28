@@ -79,9 +79,9 @@ let app = new Vue({
         var s2s3 = (s2 == s3);
         var s1s3 = (s1 == s3);
 
-        if(s1s2) {this.jackpot += 1};
-        if(s2s3) {this.jackpot += 1};
-        if(s1s3) {this.jackpot += 1};
+        if(s1s2) {this.jackpot += 1}
+        if(s2s3) {this.jackpot += 1}
+        if(s1s3) {this.jackpot += 1}
 
         if (this.jackpot == 0) {
           balanceChange = (-1 * this.wager);

@@ -1,4 +1,6 @@
-# zipfoods
+# ZipFoods
+Practice work from Week 9
+
 
 ## Project setup
 ```

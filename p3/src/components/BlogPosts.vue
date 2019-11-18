@@ -10,7 +10,6 @@
     </div>
 </template>
 <script>
-    import { posts } from './blogposts.js'
     import BlogPost from './BlogPost.vue'
     export default {
         name: 'BlogPosts',

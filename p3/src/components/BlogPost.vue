@@ -7,13 +7,13 @@
     </div>
 </template>
 <script>
-
+import { posts } from './blogposts.js'
 export default {
     name:'BlogPost',
     props: ['date', 'title', 'content'],
     data: function() {
         return {
-            post: null
+            posts: null
         };
     }
 }

@@ -1,0 +1,21 @@
+<!-- src/components/BlogPost.vue -->
+<template>
+    <div class='blog-post'>
+        <div class='post-date'>{{ post.date }}</div>
+        <div class='post-title'>{{ post.title }}</div>
+        <p class='post-content'>{{ post.content }}</p>
+    </div>
+</template>
+<script>
+
+export default {
+    name:'BlogPost',
+    props: ['date', 'title', 'content'],
+    data: function() {
+        return {
+            post: null
+        };
+    }
+}
+
+</script>

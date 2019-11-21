@@ -1,3 +1,4 @@
+<!-- BlogCategories: Generates display-list of category tags from all blog posts -->
 <template>
     <div id = "categoriesList">
         <h3>Categories</h3>
@@ -10,33 +11,43 @@
 </template>
 
 <script>
-import { posts } from './blogposts.js'
+const axios = require('axios');
 
 export default {
     name: 'BlogCategories',
-    computed: {
-        categories:function() {
+    
+    data: function() {
+        return {
+            posts: [],
+            categories: []
+        };
+    },
+    methods: {
+        loadCategories: function() {
             let categories = this.posts.map(post => post.categories);
             let mergedCategories = [].concat.apply([], categories);
 
             // Return unique, sorted categories
-            return [...new Set(mergedCategories)].sort();
-        }   
-    },
-    data: function() {
-        return {
-            posts:posts
+            this.categories = [...new Set(mergedCategories)].sort();
         }
+    },
+    mounted() {
+        this.posts = axios
+            .get("https://my-json-server.typicode.com/bibliodrone/e28-p3-api/posts")
+            .then(response => {
+                this.posts = response.data;
+                this.loadCategories();
+            });
     }
 }
 </script>
 
-<style scoped>
+<style>
 #categoriesList ul {
     list-style: none;
 }
-
 #categoriesList li {
-    display: inline;
+    line-height: 2em !important;
+    font-variant:small-caps !important;
 }
 </style>

@@ -1,13 +1,5 @@
 <template>
   <div id="app">
-    <!--<home-page></home-page>-->
-    <!--<blog-posts></blog-posts>
-    <hr>
-    <blog-categories></blog-categories>
-    <hr>
-    <by-category :category='"general"'></by-category>
-    <hr> -->
-
     <nav>
       <ul>
         <li v-for='link in links' :key='link'>
@@ -17,40 +9,26 @@
         </li>    
       </ul>
      </nav> 
-     <!--<component :is='linkComponents[page]'></component>-->
     
-      <router-view></router-view>
+     <router-view></router-view>
     
-
-    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-    <!-- <HelloWorld msg="Welcome to My Blog"/> -->
   </div>
 </template>
 
 <script>
-//import BlogPosts from './components/BlogPosts.vue'
-//import HomePage from './components/HomePage.vue'
-//import ByCategory from './components/ByCategory.vue'
-//import BlogCategories from './components/BlogCategories.vue'
+
+// To Do: Add page showing posts matching specific categories chosen
+// by the user. This might be a more complex feature than it sounds...
 
 export default {
   name : 'app', 
-  components: {
-    //ByCategory, BlogPosts, BlogCategories
-  },
+  components: {},
   data: function() {
     return {
-      links:['posts', 'categories', 'by_category'],
-      //page:'Posts',
-      //links: ['Posts', 'Categories', 'By_Category'],
-      //linkComponents: {
-      //  Posts: 'BlogPosts',
-      //  Categories: 'BlogCategories',
-      //  By_Category: 'ByCategory'
+      links:['categories', 'homepage', 'favorites']
     };
   }
 }
-
 
 </script>
 
@@ -59,8 +37,28 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  max-width: 1000px;
 }
+h1 {
+  text-align: center;
+}
+nav {
+  padding: 5px 15px;
+  background-color: lightgray;
+  text-align: center;
+}
+
+nav ul {
+  list-style-type: none;
+  padding-left: 10%;
+}
+nav li {
+  display: inline;
+  margin: 0px 10px;
+  background: snow;
+  padding: 5px;
+  border-radius: 5px;
+  }
 </style>

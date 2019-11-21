@@ -1,17 +1,19 @@
+<!-- BlogPost.vue 
+    populates list of posts in BlogPosts with info for each post
+-->
 <template>
     <div class='blog-post'>
-        <hr>
-        <!--<p>Post number {{ post.id }}</p> -->
-        <h1 class='post-title'>{{ post.title }}</h1>
+       
+         <router-link :to='{ name: "posts", params: {"id" : post.id }}'>
+                 <h2 class='post-title'>{{ post.title }}</h2>
+        </router-link>
         <div class='post-date'>{{ post.date }}</div>
-        <div class='post-category'> {{ post.categories }}</div>
         <ul id="categories">
-            <li v-for="category in post.categories" :key="category.id">
-                {{ post.category }}
+            <li v-for='category in post.categories' :key='category'>
+                {{ category }}
             </li>
         </ul>
-        <!-- <p class='post-content'>{{ post.content }}</p> -->
-
+         <hr>
     </div>
 </template>
 <script>
@@ -26,3 +28,28 @@ export default {
 }
 
 </script>
+<style>
+#categories {
+    list-style-type:none;
+    padding-left: 15px;
+}
+#categories li {
+    display: inline;
+    margin: 0px 5px;
+    padding: 3px;
+    border: 2px solid black;
+    font-variant: small-caps;
+}
+.blog-post{
+    margin-left: 10%;
+    background-color: white;
+    padding: 5px 15px 5px 5px;
+}
+
+.post-date {
+    display: table;
+    margin-left: 15px;
+    margin-bottom: 20px;
+}
+
+</style>

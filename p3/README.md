@@ -1,7 +1,7 @@
-#Project 3
+# Project 3
 
-+By: Gerald Walden
-+Production URL: <http://p3.geraldbrentwalden.me/>
++ By: Gerald Walden
++ Production URL: <http://p3.geraldbrentwalden.me/>
 
 __Outline of features__
 
@@ -22,7 +22,7 @@ entry is a button that will allow the user to remove the accompanying post from 
 be to make these tags into links, clicking on which would return a list of all the posts with the chosen tag. 
 <http://p3.geraldbrentwalden.me/categories>
 
-###Outside resources
+### Outside resources
 I used class materials and forums, and referred to the official Vue documentation. Naturally I drew from the ZipFoods examples
 for guidance on setting up the basic framework. 
 

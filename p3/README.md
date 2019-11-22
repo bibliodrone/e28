@@ -1,6 +1,7 @@
 #Project 3
-##By: Gerald Walden
-##Production URL: <http://p3.geraldbrentwalden.me/>
+
++By: Gerald Walden
++Production URL: <http://p3.geraldbrentwalden.me/>
 
 __Outline of features__
 

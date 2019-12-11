@@ -8,6 +8,8 @@
 
 
 ### Are you able to produce any errors or unexpected results?
+Routing error described in this post on the class GitHub issues forum:
+https://github.com/susanBuck/e28-fall19/issues/147
 
 ### Were there any parts of the interface that you found confusing or unclear?
 

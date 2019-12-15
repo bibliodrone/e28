@@ -5,7 +5,8 @@ import BlogPosts from './components/BlogPosts.vue';
 import BlogCategories from './components/BlogCategories.vue';
 // import ByCategory from './components/ByCategory.vue'
 import BlogPage from './components/BlogPage.vue';
-import Favorites from './components/Favorites.vue'
+import Favorites from './components/Favorites.vue';
+import store from './store'
 
 Vue.use(VueRouter);
 
@@ -26,6 +27,7 @@ const router = new VueRouter({
 })
 
 new Vue({
-  router:router,
+  store: store, 
+  router: router,
   render: h => h(App),
 }).$mount('#app')

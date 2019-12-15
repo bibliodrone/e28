@@ -52,6 +52,7 @@ export default {
         addToFavorites: function(post_id) {
             let faves = new Favorites();
             faves.add(post_id);
+            //this.$store.commit('setFavorites', post_id)
             this.addedFavorite = true;
             setTimeout(() => (this.addedFavorite = false), 2000);
 
